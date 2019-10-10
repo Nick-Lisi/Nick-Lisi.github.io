@@ -10,20 +10,22 @@
       <div class="wrapper">
         <div class="header">Test JSON page</div>
         <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
-        <button class="button" onclick = clickMe()>
+        <button class="button" onclick = "clickMe()">
           Click me to replace list entries
         </button>
         <div class="content">
-          <div id="please"></div>
 
-          <ul class="instructions"></ul>
+          <ol class="instructions"></ol>
+            <li>
+              Click button above
+            </li>
         </div>
         <div class="footer"></div>
       </div>
     </div>
     <script>
       /* N.B. - For your lab, use the variable "countries" now available on the window space */
-      var countries = [
+      const countries = [
         { name: "Afghanistan", code: "AF" },
         { name: "Åland Islands", code: "AX" },
         { name: "Albania", code: "AL" },
@@ -281,12 +283,12 @@
       const data = JSON.parse(str);
       */
 
-      const countries = -
-      console.log("List of countries in the world", countries);
+
+
       sesstionStorage.setItem('countries_arr', JSON.stringify(countries));
 
       function clickMe(){
-        const json= sessionStorage.getItem()
+        const json= sessionStorage.getItem('countries_arr');
         const list = JSON.parse(json);
 
         const nameArry = list.map((i) => i.name);
@@ -295,7 +297,7 @@
         instructions.innerHTML = ' ';
 
         for(let i=0; i <50; i++){
-          const selectNumber = getRandomIntInclusive(0,242);
+          const selectNumber = getRandomIntInclusive(0, 242);
           let el = documnet.createElement("li");
 
           el.innerText = nameArry(selectNumber);
