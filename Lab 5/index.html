@@ -15,9 +15,6 @@
         </button>
         <div class="content">
           <ol class="instructions"></ol>
-          <li>
-            Click button above
-          </li>
         </div>
         <div class="footer"></div>
       </div>
@@ -288,7 +285,7 @@
           const selectNumber = getRandomIntInclusive(0, 242);
           let el = document.createElement("li");
 
-          el.innerText = nameArray(selectNumber);
+          el.innerText = nameArray[selectNumber];
 
           instructions.appendChild(el);
         };
