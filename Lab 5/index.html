@@ -10,7 +10,7 @@
       <div class="wrapper">
         <div class="header">Test JSON page</div>
         <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
-        <button class="button">
+        <button class="button" onclick = clickMe()>
           Click me to replace list entries
         </button>
         <div class="content">
@@ -269,15 +269,42 @@
         { name: "Zimbabwe", code: "ZW" }
       ];
       console.log("List of countries in the world", countries);
-
+      /*
       //var x = 50;
       let c_json = JSON.stringify(countries);
 
-      sessionStorage.setItem("cont", JSON.stringify(countries));
-      const str = sessionStorage.getItem("name")
-      const data = JSON.parse(sessionStorage.cont);
+      sessionStorage.setItem("some", JSON.stringify(countries));
 
-      document.getElementById("please").innerHTML = data.name + "<br>";
+      //click button
+
+      const str = sessionStorage.getItem("some")
+      const data = JSON.parse(str);
+      */
+
+      const countries = -
+      console.log("List of countries in the world", countries);
+      sesstionStorage.setItem('countries_arr', JSON.stringify(countries));
+
+      function clickMe(){
+        const json= sessionStorage.getItem()
+        const list = JSON.parse(json);
+
+        const nameArry = list.map((i) => i.name);
+
+        const instructions = document.querySelector('.instructions');
+        instructions.innerHTML = ' ';
+
+        for(let i=0; i <50; i++){
+          const selectNumber = getRandomIntInclusive(0,242);
+          let el = documnet.createElement("li");
+
+          el.innerText = nameArry(selectNumber);
+
+          instructions.appendChild(el);
+        };
+
+      }
+
 
       /*function range(countries) {
       for ( i < data; i -= 1){
