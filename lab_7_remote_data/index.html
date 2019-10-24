@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Test AJAX page</title>
+  <link rel="stylesheet" type="text/css" href="./lab_styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <div class="header">UMD Bus Routes</div>
+      <button class="button" onclick="loadData()">Load Some JSON</button>
+      <div class="content"></div>
+      <div class="footer"></div>
+    </div>
+  </div>
+  <script>
+    function loadData() {
+      fetch('https://api.umd.io/v0/bus/routes')
+        .then(res => res.json())
+        //.then(res => res.map(c => c.title))
+        .then(res => {
+
+          const data = res.map(i => i.route_id);
+
+          const content = document.querySelector(".content");
+          content.innerHTML = " ";
+
+          let el = document.createElement("li");
+          let array = [];
+
+
+          for(i = 0; i <res.length; i++){
+            
+            //el.innerText += res[data];
+            //content.appendChild(el);
+
+            array += ( "<li>"+res[i].title +"</li>");
+            //content.appendChild(list);
+          }
+          console.log(array);
+          console.log(array[4]);
+          return array;
+        })
+        .then()
+          /*const nameArray = res.map(i => i.title);
+
+          const content = document.querySelector(".content");
+          content.innerHTML = " ";
+
+          let el = document.createElement("ol");
+
+          el.innerHTML = nameArray;
+          content.appendChild(el);
+          return content;*/
+        
+        .then(data => 
+        document.querySelector(".content").innerHTML =  data);
+    }
+  </script>
+</body>
+
+</html>
