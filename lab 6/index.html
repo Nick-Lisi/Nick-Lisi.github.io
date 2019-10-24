@@ -23,8 +23,8 @@
       fetch('ajax_sample.json')
         .then(res => res.json())
         .then(res => res.map(c => c.name))
-        //.then(codes => document.querySelector(".content").innerText = codes)
-        
+        .then(codes => document.querySelector(".content").innerText = codes)
+        /*
         
           for (let c = 0; c < 15; c++) {
           const selectNumber = getRandomIntInclusive(0, 242);
@@ -33,7 +33,7 @@
           el.innerText = res[selectNumber];
 
           return codes; 
-        };
+        };*/
 
             //console.log('im a demo!', codes);
             //return item + " extra";
