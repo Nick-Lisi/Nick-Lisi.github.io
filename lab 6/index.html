@@ -23,9 +23,31 @@
       fetch('ajax_sample.json')
         .then(res => res.json())
         .then(res => res.map(c => c.name))
-        .then(codes => document.querySelector(".content").innerText = codes)
-        /*
+        .then(codes => {
+          
+          const content = document.querySelector(".content");
+          
+          content.innerHTML = " ";
+          for(let i =0; i <15; i++){
+            
+              const selectNumber = getRandomIntInclusive(0, 242);
+              let el = document.createElement("ol");
+              
+              el.innerText = codes[selectNumber];
+              content.appendChild(el);
+            
+          }
+
+          return content;
+        })
+
+
         
+          
+        
+
+        
+        /*
           for (let c = 0; c < 15; c++) {
           const selectNumber = getRandomIntInclusive(0, 242);
           let el = document.createElement("li");
