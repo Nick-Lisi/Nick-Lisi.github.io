@@ -33,16 +33,40 @@ body {
     min-height: 100%;
     display: flex;
     width: 80%;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
     background: #fefefe;
-    border: 1px dashed #ccc;
     margin: 25px;
   
   }
-  
+
+  .row {
+    min-height: 100%;
+    display: flex;
+    width: 80%;
+    align-items: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    background: #fefefe;
+    margin: 25px;
+  }
+
+
+  .bar{
+    min-height: 100%;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background: #333;
+    margin: 0px;
+  }
+
+
   .wrapper div {
     border-radius: 14px;
   }
@@ -64,18 +88,32 @@ body {
   .instructions {
     padding: 0 25px;
   }
+
+  .logo{
+    width:150px;
+    height:110px;
+    background: azure;
+    margin-top: 8px;
+}
+
   
   .content {
     background: #fff;
     border: 2px dotted #444;
-    flex-grow: 2;
     flex: 0 0 200px;
     padding: 10px;
     overflow-wrap: break-word;
-    margin: 25px 50px;
-    max-width: 450px;
+    margin: 25px 10px;
+    max-width: 200px;
+    
   }
   
+  .map{
+    width:600px; 
+    height:450px; 
+    border:0;
+  }
+
   .button {
     background-color: #ffc477;
     -moz-border-radius: 11px;
@@ -100,4 +138,33 @@ body {
   .button:active {
     position: relative;
     top: 1px;
+  }
+
+  .topcolor{
+    background-color: #333;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    margin-top: 0px;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 41px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
   }
