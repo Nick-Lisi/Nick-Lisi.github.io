@@ -5,6 +5,17 @@
 
   <head>
     <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
     <!-- No UTF-8, no emoji! Unicode has superceded ASCII as the language of the web -->
     <title>Sample Title</title>
     <meta name="description" content="A description for the google robots" />
@@ -19,9 +30,9 @@
         <div class="bar">
           <a><img src="Logo.png" class="logo"/></a>
           <ul>
-            <li><a>Home</a></li>
+            <li><a onclick="loadData()">Home</a></li>
             <li><a>Booking</a></li>
-            <li><a>About</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a>Documentation</a></li>
           </ul>
         </div>
@@ -30,9 +41,7 @@
             src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d273132.4976600421!2d-76.9222563807033!3d39.000385465521035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1574029716707!5m2!1sen!2sus"
             class="map"
           ></iframe>
-          <div class="content">
-            List of Rec centers that can be clicked for location and booking
-          </div>
+          <div class="content"></div>
         </div>
 
         <div class="footer"></div>
@@ -40,17 +49,60 @@
     </div>
 
     <script>
-      /*function loadData() {
-            console.log('fetch'); // confirm code is running on click
-            fetch('/api')
-              .then(res => res.json())
-              .then(res => {
-                console.log(res); // logging step to check what we got
-                return res;
-              })
-              .then(res => res.data.map(c => c.route_id))
-              .then(codes => document.querySelector(".content").innerText = codes);
-          }*/
+      function loadData() {
+        fetch("https://data.princegeorgescountymd.gov/resource/gwq4-iu9d.json")
+          .then(res => res.json())
+          //.then(res => res.map(c => c.title))
+          .then(res => {
+            const data = res.map(i => i.name);
+            let array = [];
+
+            for (i = 0; i < res.length; i++) {
+              array +=
+                "<button class='myButton' onclick='dropPin'>" +
+                res[i].name +
+                "</button>";
+              //content.appendChild(list);
+            }
+            return array;
+          })
+          .then()
+
+          .then(data => (document.querySelector(".content").innerHTML = data));
+      }
+      /*
+      var endMarker;
+      var map;
+      function dropPin() {
+        fetch("https://data.princegeorgescountymd.gov/resource/gwq4-iu9d.json")
+          .then(res => res.json())
+          //.then(res => res.map(c => c.title))
+          .then(res => {
+            const data = res.map(i => i.address);
+            console.log(data[1]);
+            // if any previous marker exists, let's first remove it from the map
+            if (endMarker) {
+              endMarker.setMap(null);
+            }
+            // create the marker
+            endMarker = new google.maps.Marker({
+              position: map.getCenter(),
+              map: map,
+              draggable: true
+            });
+            copyMarkerpositionToInput();
+            // add an event "onDrag"
+            google.maps.event.addListener(endMarker, "dragend", function() {
+              copyMarkerpositionToInput();
+            });
+          });
+      }
+      function copyMarkerpositionToInput() {
+        // get the position of the marker, and set it as the value of input
+        document.getElementsByClassName("map").value =
+          endMarker.getPosition().lat() + "," + endMarker.getPosition().lng();
+      }
+      */
     </script>
   </body>
 </html>
