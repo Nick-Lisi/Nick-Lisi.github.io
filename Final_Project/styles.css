@@ -1,10 +1,10 @@
 body {
     line-height: 1.6;
     font-size: 18px;
-    color: #444;
-    padding: 0 10px;
+
+    padding: 0px;
     background: #eee;
-  }
+}
   
   h1,
   h2,
@@ -43,6 +43,7 @@ body {
     color: dimgrey;
   }
   
+  /*
   .container {
     position: absolute;
     right: 0;
@@ -51,7 +52,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     font-family: Helvetica, Geneva, Tahoma, sans-serif;
-  }
+  }*/
   
   .wrapper {
     min-height: 100%;
@@ -66,6 +67,7 @@ body {
   
   }
 
+  /*
   .row {
     min-height: 100%;
     display: flex;
@@ -75,7 +77,7 @@ body {
     flex-direction: row;
     background: #fefefe;
     margin: 25px;
-  }
+  } */
 
 
   .bar{
@@ -114,10 +116,14 @@ body {
   }
 
   .logo{
-    width:150px;
-    height:110px;
+    width:300px;
+    height:220px;
     background: azure;
-    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.bookbut{
+  height: 20px;
 }
 
   
@@ -128,8 +134,8 @@ body {
     padding: 10px;
     overflow-wrap: break-word;
     margin: 0px 10px;
-    max-width: 200px;
-    max-height: 420px;
+    max-width: 250px;
+    max-height: 450px;
     overflow: scroll;
   }
   
@@ -137,6 +143,7 @@ body {
     width:600px; 
     height:450px; 
     border:0;
+    margin-bottom: 8px;
   }
 
   .button {
